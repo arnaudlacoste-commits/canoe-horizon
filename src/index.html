@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canoë Horizon — Location de canoë dans les Gorges de l'Hérault | Laroque</title>
+<meta name="description" content="Canoë Horizon, 4 parcours sur l'Hérault depuis Laroque, La Combe et Agonès. 6 km, 7 km, 9 km et 13 km. Arrivée Aubanel. Matériel fourni, navette incluse. Réservez en ligne.">
+<meta name="keywords" content="canoë hérault, location canoë gorges de l'hérault, canoë laroque, descente canoë famille, base canoë agones, base la combe">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.canoe-horizon.fr/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Canoë Horizon — Location de canoë dans les Gorges de l'Hérault">
+<meta property="og:description" content="4 parcours sur l'Hérault : 6 km, 7 km, 9 km et 13 km. Départs depuis Laroque, La Combe et Agonès. Matériel fourni, navette incluse.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://www.canoe-horizon.fr/images/hero.jpg">
+<meta property="og:url" content="https://www.canoe-horizon.fr/">
+
+<!-- Preconnect & fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+
+<!-- Leaflet CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css">
+
+<link rel="icon" href="images/logo.png">
+<link rel="stylesheet" href="css/style.css">
+
+<!-- SEO structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristAttraction",
+  "name": "Canoë Horizon",
+  "description": "Base de location de canoë dans les Gorges de l'Hérault. 4 parcours entre 6 et 13 km. Départs depuis Laroque, La Combe et Agonès. Arrivée Aubanel.",
+  "image": "https://www.canoe-horizon.fr/images/hero.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Base Canoë Horizon",
+    "addressLocality": "Laroque",
+    "postalCode": "34190",
+    "addressCountry": "FR"
+  },
+  "telephone": "+33632369678",
+  "priceRange": "11€ - 26€",
+  "openingHours": "Mo-Su 09:00-19:00"
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Aller au contenu principal</a>
+
+<!-- ===================== HEADER ===================== -->
+<header class="site-header" id="header">
+  <div class="container header-inner">
+    <a href="#hero" class="logo" aria-label="Canoë Horizon - Accueil">
+      <img class="logo-icon" src="images/logo.png" alt="" width="40" height="40">
+      <span class="logo-text">Canoë<br><small>HORIZON</small></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul>
+        <li><a href="#hero" data-i18n="nav.home">Accueil</a></li>
+        <li><a href="#parcours" data-i18n="nav.parcours">Nos parcours</a></li>
+        <li><a href="#carte" data-i18n="nav.carte">Carte</a></li>
+        <li><a href="#faq" data-i18n="nav.infos">Infos pratiques</a></li>
+        <li><a href="#gorges" data-i18n="nav.decouvrir">À découvrir</a></li>
+        <li><a href="#avis" data-i18n="nav.avis">Avis</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <div class="lang-switcher" id="lang-switcher">
+        <button class="lang-toggle" id="lang-toggle" aria-haspopup="true" aria-expanded="false" aria-label="Changer de langue">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18M3 12h18" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <span id="lang-btn-text">FR</span>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown" role="listbox" aria-label="Choisir la langue"></div>
+      </div>
+      <a href="#reservation" class="btn btn-primary btn-sm" data-i18n="nav.reserve">Réserver en ligne</a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Ouvrir le menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero" id="hero">
+    <div class="hero-media" aria-hidden="true">
+      <img src="images/hero.jpg" alt="" class="hero-img">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1>Canoë Horizon</h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">Laissez-vous porter par les eaux de l'Hérault</p>
+      <p class="hero-tag" data-i18n="hero.tag">4 parcours accessibles dès 6 ans — de 6 à 13 km</p>
+      <div class="hero-actions">
+        <a href="#reservation" class="btn btn-primary btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M3 9h18M8 3v3M16 3v3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <span data-i18n="hero.cta1">Réserver ma descente</span>
+        </a>
+        <a href="#parcours" class="btn btn-ghost btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6.4 7-12a7 7 0 0 0-14 0c0 5.6 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span data-i18n="hero.cta2">Découvrir les parcours</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider wave-into-white" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,32 C220,80 420,0 720,40 C1020,80 1220,8 1440,46 L1440,90 L0,90 Z"></path></svg>
+  </div>
+
+  <!-- ===================== TRUST BAR ===================== -->
+  <section class="trust-bar" id="trust" aria-label="Points de confiance">
+    <div class="container trust-grid">
+      <div class="trust-item">
+        <span class="trust-stars" aria-hidden="true">⭐⭐⭐⭐⭐</span>
+        <span class="trust-label"><span data-i18n="trust.rating">4,9/5 sur Google</span><small data-i18n="trust.rating_sub">+ de 500 avis</small></span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3Z" stroke="#264653" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="trust-label"><span data-i18n="trust.equip">Matériel fourni</span><small data-i18n="trust.equip_sub">Complet et de qualité</small></span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M3 16V9a2 2 0 0 1 2-2h9l5 4v5" stroke="#264653" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="17.5" r="1.8" stroke="#264653" stroke-width="1.6"/><circle cx="16.5" cy="17.5" r="1.8" stroke="#264653" stroke-width="1.6"/><path d="M3 13h16" stroke="#264653" stroke-width="1.6"/></svg>
+        </span>
+        <span class="trust-label"><span data-i18n="trust.shuttle">Navette incluse</span><small data-i18n="trust.shuttle_sub">Retour à la base</small></span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#264653" stroke-width="1.6"/><text x="12" y="16.5" font-size="11" font-weight="700" text-anchor="middle" fill="#264653" font-family="Poppins, sans-serif">P</text></svg>
+        </span>
+        <span class="trust-label"><span data-i18n="trust.parking">Parking gratuit</span><small data-i18n="trust.parking_sub">À chaque base</small></span>
+      </div>
+      <div class="trust-item">
+        <span class="trust-icon" aria-hidden="true">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="7" r="2.4" stroke="#264653" stroke-width="1.6"/><circle cx="17" cy="8" r="2" stroke="#264653" stroke-width="1.6"/><path d="M3 19c0-3 2-5 5-5s5 2 5 5" stroke="#264653" stroke-width="1.6" stroke-linecap="round"/><path d="M13.5 19c0-2.4 1.5-4 3.8-4 2 0 3.7 1.5 3.7 4" stroke="#264653" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <span class="trust-label"><span data-i18n="trust.family">Accessible aux familles</span><small data-i18n="trust.family_sub">Dès 6 ans</small></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PARCOURS ===================== -->
+  <section class="section" id="parcours">
+    <div class="container">
+      <p class="section-eyebrow" data-i18n="parcours.eyebrow">Choisissez votre aventure</p>
+      <h2 data-i18n="parcours.title">Nos parcours</h2>
+
+      <div class="cards-grid">
+
+        <!-- 6 KM — Découverte Sportive — Vert — Départ Base Agonès -->
+        <article class="course-card course-card--decouverte">
+          <div class="card-img-wrap">
+            <img src="images/parcours-decouverte.jpg" alt="Eau vive du parcours Découverte Sportive sur l'Hérault" class="card-img" loading="lazy">
+            <span class="badge">6 KM</span>
+          </div>
+          <div class="course-body">
+            <div class="course-title-row">
+              <span class="course-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 3c3 4 6 7.5 6 11a7 7 0 0 1-14 0c0-3.5 3-7 6-11Z" stroke="#fff" stroke-width="1.8"/></svg>
+              </span>
+              <h3 data-i18n="c6.name">Découverte Sportive</h3>
+            </div>
+            <p class="course-text" data-i18n="c6.desc">Une descente engagée dans les Gorges. Eaux vives et paysages sauvages depuis la Base Agonès.</p>
+            <ul class="course-meta">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#5c6b6e" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#5c6b6e" stroke-width="1.6" stroke-linecap="round"/></svg>
+                2 h
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.4" stroke="#5c6b6e" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5" stroke="#5c6b6e" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <span data-i18n="c6.age">12 ans minimum</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s6-5.6 6-10a6 6 0 0 0-12 0c0 4.4 6 10 6 10Z" stroke="#5c6b6e" stroke-width="1.6"/></svg>
+                <span data-i18n="c6.route">Base Agonès → Aubanel</span>
+              </li>
+            </ul>
+            <p class="course-price" data-i18n="c6.price">22 € / personne</p>
+            <a href="#reservation" class="btn btn-course btn-block" data-i18n="course.reserve">Réserver</a>
+          </div>
+        </article>
+
+        <!-- 7 KM — Familial — Bleu — Départ Base Agonès -->
+        <article class="course-card course-card--famille">
+          <div class="card-img-wrap">
+            <img src="images/parcours-famille.jpg" alt="Familles en canoë sur le parcours Familial depuis Agonès" class="card-img" loading="lazy">
+            <span class="badge">7 KM</span>
+          </div>
+          <div class="course-body">
+            <div class="course-title-row">
+              <span class="course-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="7" r="2.2" stroke="#fff" stroke-width="1.7"/><circle cx="16" cy="8" r="1.8" stroke="#fff" stroke-width="1.7"/><path d="M3 19c0-2.8 1.8-4.6 5-4.6s5 1.8 5 4.6" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/><path d="M13.5 19c0-2.2 1.4-3.6 3.5-3.6s3.5 1.4 3.5 3.6" stroke="#fff" stroke-width="1.7" stroke-linecap="round"/></svg>
+              </span>
+              <h3 data-i18n="c7.name">Familial</h3>
+            </div>
+            <p class="course-text" data-i18n="c7.desc">Le parcours idéal pour les familles. Baignades et plages sauvages garanties depuis la Base Agonès.</p>
+            <ul class="course-meta">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#5c6b6e" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#5c6b6e" stroke-width="1.6" stroke-linecap="round"/></svg>
+                2 h
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.4" stroke="#5c6b6e" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5" stroke="#5c6b6e" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <span data-i18n="c7.age">6 ans minimum</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s6-5.6 6-10a6 6 0 0 0-12 0c0 4.4 6 10 6 10Z" stroke="#5c6b6e" stroke-width="1.6"/></svg>
+                <span data-i18n="c7.route">Base Agonès → Aubanel</span>
+              </li>
+            </ul>
+            <p class="course-price" data-i18n-html="c7.price">23 € / adulte · 11 € / enfant <small>(- de 11 ans)</small></p>
+            <a href="#reservation" class="btn btn-course btn-block" data-i18n="course.reserve">Réserver</a>
+          </div>
+        </article>
+
+        <!-- 9 KM — Découverte — Orange — Départ Base La Combe -->
+        <article class="course-card course-card--paysages">
+          <div class="card-img-wrap">
+            <img src="images/parcours-paysages.jpg" alt="Falaises et eaux turquoise du parcours Découverte depuis La Combe" class="card-img" loading="lazy">
+            <span class="badge">9 KM</span>
+          </div>
+          <div class="course-body">
+            <div class="course-title-row">
+              <span class="course-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 20l5-13 4 8 3-5 6 10H3Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>
+              </span>
+              <h3 data-i18n="c9.name">Découverte</h3>
+            </div>
+            <p class="course-text" data-i18n="c9.desc">Falaises, plages sauvages et rapides accessibles. Un grand classique depuis la Base La Combe.</p>
+            <ul class="course-meta">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#5c6b6e" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#5c6b6e" stroke-width="1.6" stroke-linecap="round"/></svg>
+                2 h 30
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.4" stroke="#5c6b6e" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5" stroke="#5c6b6e" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <span data-i18n="c9.age">6 ans minimum</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s6-5.6 6-10a6 6 0 0 0-12 0c0 4.4 6 10 6 10Z" stroke="#5c6b6e" stroke-width="1.6"/></svg>
+                <span data-i18n="c9.route">Base La Combe → Aubanel</span>
+              </li>
+            </ul>
+            <p class="course-price" data-i18n-html="c9.price">24 € / adulte · 11 € / enfant <small>(- de 11 ans)</small></p>
+            <a href="#reservation" class="btn btn-course btn-block" data-i18n="course.reserve">Réserver</a>
+          </div>
+        </article>
+
+        <!-- 13 KM — Aventure — Rouge — Départ Base Canoë Horizon Laroque -->
+        <article class="course-card course-card--aventure">
+          <div class="card-img-wrap">
+            <img src="images/parcours-aventure.jpg" alt="Rapides et gorges du parcours Aventure depuis Laroque" class="card-img" loading="lazy">
+            <span class="badge">13 KM</span>
+          </div>
+          <div class="course-body">
+            <div class="course-title-row">
+              <span class="course-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2 20l6-13 4 7 2.5-4L21 20H2Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>
+              </span>
+              <h3 data-i18n="c13.name">Aventure</h3>
+            </div>
+            <p class="course-text" data-i18n="c13.desc">La grande descente ! Depuis la Base Canoë Horizon Laroque jusqu'à Aubanel. Paysages époustouflants.</p>
+            <ul class="course-meta">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#5c6b6e" stroke-width="1.6"/><path d="M12 7v5l3 2" stroke="#5c6b6e" stroke-width="1.6" stroke-linecap="round"/></svg>
+                3 h 30
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.4" stroke="#5c6b6e" stroke-width="1.6"/><path d="M5 20c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5" stroke="#5c6b6e" stroke-width="1.6" stroke-linecap="round"/></svg>
+                <span data-i18n="c13.age">12 ans minimum</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s6-5.6 6-10a6 6 0 0 0-12 0c0 4.4 6 10 6 10Z" stroke="#5c6b6e" stroke-width="1.6"/></svg>
+                <span data-i18n="c13.route">Base Laroque → Aubanel</span>
+              </li>
+            </ul>
+            <p class="course-price" data-i18n="c13.price">26 € / personne</p>
+            <a href="#reservation" class="btn btn-course btn-block" data-i18n="course.reserve">Réserver</a>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Comparatif + pourquoi nous choisir -->
+      <div class="compare-why-grid">
+        <div class="compare-wrap">
+          <h3 class="compare-title" data-i18n="compare.title">Comparez nos parcours</h3>
+
+          <!-- VERSION MOBILE : cartes 2×2 -->
+          <div class="compare-cards" aria-label="Comparatif des parcours">
+
+            <div class="cc-card cc-card--decouverte">
+              <div class="cc-top">
+                <span class="cc-km">6 km</span>
+                <span class="cc-name" data-i18n="c6.name">Découverte Sportive</span>
+              </div>
+              <ul class="cc-rows">
+                <li><span class="cc-label" data-i18n="cc.duree">Durée</span><span class="cc-val">2 h</span></li>
+                <li><span class="cc-label" data-i18n="cc.age">Âge</span><span class="cc-val">12 ans+</span></li>
+                <li><span class="cc-label" data-i18n="cc.depart">Départ</span><span class="cc-val">Agonès</span></li>
+                <li class="cc-row-price"><span class="cc-label" data-i18n="cc.tarif">Tarif</span><span class="cc-val cc-price">22 €</span></li>
+              </ul>
+              <a href="#reservation" class="btn cc-btn" data-i18n="course.reserve">Réserver</a>
+            </div>
+
+            <div class="cc-card cc-card--famille">
+              <div class="cc-top">
+                <span class="cc-km">7 km</span>
+                <span class="cc-name" data-i18n="c7.name">Familial</span>
+              </div>
+              <ul class="cc-rows">
+                <li><span class="cc-label" data-i18n="cc.duree">Durée</span><span class="cc-val">2 h</span></li>
+                <li><span class="cc-label" data-i18n="cc.age">Âge</span><span class="cc-val">6 ans+</span></li>
+                <li><span class="cc-label" data-i18n="cc.depart">Départ</span><span class="cc-val">Agonès</span></li>
+                <li class="cc-row-price"><span class="cc-label" data-i18n="cc.tarif">Tarif</span><span class="cc-val cc-price">23 € / 11 €</span></li>
+              </ul>
+              <a href="#reservation" class="btn cc-btn" data-i18n="course.reserve">Réserver</a>
+            </div>
+
+            <div class="cc-card cc-card--paysages">
+              <div class="cc-top">
+                <span class="cc-km">9 km</span>
+                <span class="cc-name" data-i18n="c9.name">Découverte</span>
+              </div>
+              <ul class="cc-rows">
+                <li><span class="cc-label" data-i18n="cc.duree">Durée</span><span class="cc-val">2 h 30</span></li>
+                <li><span class="cc-label" data-i18n="cc.age">Âge</span><span class="cc-val">6 ans+</span></li>
+                <li><span class="cc-label" data-i18n="cc.depart">Départ</span><span class="cc-val">La Combe</span></li>
+                <li class="cc-row-price"><span class="cc-label" data-i18n="cc.tarif">Tarif</span><span class="cc-val cc-price">24 € / 11 €</span></li>
+              </ul>
+              <a href="#reservation" class="btn cc-btn" data-i18n="course.reserve">Réserver</a>
+            </div>
+
+            <div class="cc-card cc-card--aventure">
+              <div class="cc-top">
+                <span class="cc-km">13 km</span>
+                <span class="cc-name" data-i18n="c13.name">Aventure</span>
+              </div>
+              <ul class="cc-rows">
+                <li><span class="cc-label" data-i18n="cc.duree">Durée</span><span class="cc-val">3 h 30</span></li>
+                <li><span class="cc-label" data-i18n="cc.age">Âge</span><span class="cc-val">12 ans+</span></li>
+                <li><span class="cc-label" data-i18n="cc.depart">Départ</span><span class="cc-val">Laroque</span></li>
+                <li class="cc-row-price"><span class="cc-label" data-i18n="cc.tarif">Tarif</span><span class="cc-val cc-price">26 €</span></li>
+              </ul>
+              <a href="#reservation" class="btn cc-btn" data-i18n="course.reserve">Réserver</a>
+            </div>
+
+          </div>
+
+          <!-- VERSION DESKTOP : table -->
+          <div class="table-scroll table-scroll--desktop">
+            <table class="compare-table">
+              <caption class="sr-only">Tableau comparatif des parcours canoë proposés par Canoë Horizon</caption>
+              <thead>
+                <tr>
+                  <th scope="col" data-i18n="col.parcours">Parcours</th>
+                  <th scope="col" data-i18n="col.distance">Distance</th>
+                  <th scope="col" data-i18n="col.duree">Durée</th>
+                  <th scope="col" data-i18n="col.age">Âge min.</th>
+                  <th scope="col" data-i18n="col.depart">Départ</th>
+                  <th scope="col" data-i18n="col.arrivee">Arrivée</th>
+                  <th scope="col" data-i18n="col.tarifs">Tarifs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row" class="compare-name compare-name--decouverte" data-i18n="c6.name">Découverte Sportive</th>
+                  <td>6 km</td>
+                  <td>2 h</td>
+                  <td>12 ans</td>
+                  <td>Base Agonès</td>
+                  <td>Aubanel</td>
+                  <td>22 € / pers.</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="compare-name compare-name--famille" data-i18n="c7.name">Familial</th>
+                  <td>7 km</td>
+                  <td>2 h</td>
+                  <td>6 ans</td>
+                  <td>Base Agonès</td>
+                  <td>Aubanel</td>
+                  <td>23 € adulte<br>11 € enfant</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="compare-name compare-name--paysages" data-i18n="c9.name">Découverte</th>
+                  <td>9 km</td>
+                  <td>2 h 30</td>
+                  <td>6 ans</td>
+                  <td>Base La Combe</td>
+                  <td>Aubanel</td>
+                  <td>24 € adulte<br>11 € enfant</td>
+                </tr>
+                <tr>
+                  <th scope="row" class="compare-name compare-name--aventure" data-i18n="c13.name">Aventure</th>
+                  <td>13 km</td>
+                  <td>3 h 30</td>
+                  <td>12 ans</td>
+                  <td>Base Laroque</td>
+                  <td>Aubanel</td>
+                  <td>26 € / pers.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="why-card">
+          <h3 class="why-title" data-i18n="why.title">Pourquoi choisir Canoë Horizon ?</h3>
+          <ul class="why-grid">
+            <li>
+              <span class="why-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11Z" stroke="#264653" stroke-width="1.6"/></svg>
+              </span>
+              <span data-i18n="why.1">3 bases au cœur des Gorges de l'Hérault</span>
+            </li>
+            <li>
+              <span class="why-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#264653" stroke-width="1.6"/><text x="12" y="16.5" font-size="10" font-weight="700" text-anchor="middle" fill="#264653" font-family="Poppins, sans-serif">P</text></svg>
+              </span>
+              <span data-i18n="why.2">Parking gratuit à chaque base</span>
+            </li>
+            <li>
+              <span class="why-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 16V9a2 2 0 0 1 2-2h9l5 4v5" stroke="#264653" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="17.5" r="1.8" stroke="#264653" stroke-width="1.6"/><circle cx="16.5" cy="17.5" r="1.8" stroke="#264653" stroke-width="1.6"/></svg>
+              </span>
+              <span data-i18n="why.3">Navette incluse retour à la base</span>
+            </li>
+            <li>
+              <span class="why-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3Z" stroke="#264653" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </span>
+              <span data-i18n="why.4">Matériel récent et entretenu</span>
+            </li>
+            <li>
+              <span class="why-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#264653" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke="#264653" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span data-i18n="why.5">Départs réguliers sans attente</span>
+            </li>
+            <li>
+              <span class="why-icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="7" r="2.2" stroke="#264653" stroke-width="1.6"/><circle cx="16" cy="8" r="1.8" stroke="#264653" stroke-width="1.6"/><path d="M3 19c0-2.8 1.8-4.6 5-4.6s5 1.8 5 4.6" stroke="#264653" stroke-width="1.6" stroke-linecap="round"/><path d="M13.5 19c0-2.2 1.4-3.6 3.5-3.6s3.5 1.4 3.5 3.6" stroke="#264653" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </span>
+              <span data-i18n="why.6">Activité familiale dès 6 ans</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider wave-into-sand" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,50 C220,4 420,86 720,46 C1020,8 1220,82 1440,40 L1440,90 L0,90 Z"></path></svg>
+  </div>
+
+  <!-- ===================== DÉCOUVRIR LES TRÉSORS ===================== -->
+  <section class="section section-tinted" id="gorges">
+    <div class="container">
+      <p class="section-eyebrow section-eyebrow--center" data-i18n="gorges.eyebrow">Découvrez les trésors de l'Hérault</p>
+
+      <div class="discover-grid">
+        <div class="discover-card">
+          <div class="discover-img-wrap">
+            <img src="images/parcours-paysages.jpg" alt="Falaises impressionnantes des Gorges de l'Hérault" class="discover-img" loading="lazy">
+            <span class="discover-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M3 20l5-13 4 8 3-5 6 10H3Z" stroke="#264653" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+          <h3 data-i18n="gorges.1">Les falaises impressionnantes</h3>
+        </div>
+        <div class="discover-card">
+          <div class="discover-img-wrap">
+            <img src="images/parcours-famille.jpg" alt="Plages sauvages le long de la rivière Hérault" class="discover-img" loading="lazy">
+            <span class="discover-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3v6m-4-3 4-3 4 3" stroke="#264653" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M3 19c2-1 4-1 6 0s4 1 6 0 4-1 6 0" stroke="#264653" stroke-width="1.7" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+          <h3 data-i18n="gorges.2">Les plages sauvages</h3>
+        </div>
+        <div class="discover-card">
+          <div class="discover-img-wrap">
+            <img src="images/parcours-aventure.jpg" alt="Rapides accessibles aux familles dans les gorges" class="discover-img" loading="lazy">
+            <span class="discover-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M2 15c2 2 4 2 6 0s4-2 6 0 4 2 6 0" stroke="#264653" stroke-width="1.8" stroke-linecap="round"/><path d="M2 10c2 2 4 2 6 0s4-2 6 0 4 2 6 0" stroke="#264653" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+          <h3 data-i18n="gorges.3">Les rapides accessibles</h3>
+        </div>
+        <div class="discover-card">
+          <div class="discover-img-wrap">
+            <img src="images/hero.jpg" alt="Eaux turquoise des Gorges de l'Hérault" class="discover-img" loading="lazy">
+            <span class="discover-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11Z" stroke="#264653" stroke-width="1.6"/></svg>
+            </span>
+          </div>
+          <h3 data-i18n="gorges.4">Les eaux turquoise</h3>
+        </div>
+        <div class="discover-card">
+          <div class="discover-img-wrap">
+            <img src="images/parcours-decouverte.jpg" alt="Zones de baignade calmes sur le parcours" class="discover-img" loading="lazy">
+            <span class="discover-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="3" stroke="#264653" stroke-width="1.6"/><path d="M5 20c0-3.3 3-5.5 7-5.5s7 2.2 7 5.5" stroke="#264653" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </span>
+          </div>
+          <h3 data-i18n="gorges.5">Les zones de baignade</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMMENT ÇA MARCHE ===================== -->
+  <section class="section" id="comment-ca-marche">
+    <div class="container">
+      <p class="section-eyebrow section-eyebrow--center" data-i18n="howto.eyebrow">Simple comme bonjour</p>
+      <h2 style="text-align:center" data-i18n="howto.title">Comment ça marche ?</h2>
+
+      <!-- ── Carte visuelle du voyage ── -->
+      <div class="journey-card" aria-label="Schéma du déroulement d'une journée">
+        <div class="jc-flow">
+
+          <div class="jc-point jc-point--depart">
+            <div class="jc-icon-wrap jc-icon-wrap--car">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                <rect x="2" y="11" width="20" height="7" rx="2" stroke="currentColor" stroke-width="1.7"/>
+                <circle cx="7" cy="18" r="2" stroke="currentColor" stroke-width="1.7"/>
+                <circle cx="17" cy="18" r="2" stroke="currentColor" stroke-width="1.7"/>
+                <path d="M2 14h1M21 14h1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+              <span class="jc-badge">P</span>
+            </div>
+            <p class="jc-point-title" data-i18n="howto.car_title">Votre voiture</p>
+            <p class="jc-point-sub" data-i18n="howto.car_sub">Parking gratuit à la base</p>
+          </div>
+
+          <div class="jc-connector">
+            <div class="jc-connector-line"></div>
+            <svg class="jc-waves" viewBox="0 0 120 28" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M0,14 C10,6 20,22 30,14 C40,6 50,22 60,14 C70,6 80,22 90,14 C100,6 110,22 120,14" stroke="#7BC8C3" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            </svg>
+            <span class="jc-connector-label" data-i18n="howto.river">6 · 7 · 9 · 13 km sur l'Hérault</span>
+          </div>
+
+          <div class="jc-point jc-point--arrivee">
+            <div class="jc-icon-wrap jc-icon-wrap--flag">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M5 4l14 4-14 4V4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" fill="currentColor" fill-opacity="0.15"/>
+                <path d="M3 21c1.5-1 4-1 6 0s4.5 1 6 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <p class="jc-point-title" data-i18n="howto.arr_title">Arrivée Aubanel</p>
+            <p class="jc-point-sub" data-i18n="howto.arr_sub">Plage · fin de descente</p>
+          </div>
+        </div>
+
+        <div class="jc-return">
+          <div class="jc-return-inner">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M3 16V9a2 2 0 0 1 2-2h9l5 4v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="7.5" cy="17.5" r="1.8" stroke="currentColor" stroke-width="1.6"/>
+              <circle cx="16.5" cy="17.5" r="1.8" stroke="currentColor" stroke-width="1.6"/>
+            </svg>
+            <span data-i18n="howto.return">Navette retour incluse — votre voiture vous attend à la base</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M19 12H5M5 12l7-7M5 12l7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Étapes détaillées ── -->
+      <ol class="journey-steps">
+        <li class="js-step">
+          <span class="js-num" aria-hidden="true">1</span>
+          <div class="js-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="17" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M3 9h18M8 3v3M16 3v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M7 13h2M7 17h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="howto.s1t">Je réserve</h3>
+          <p data-i18n="howto.s1d">En ligne ou par téléphone. Choisissez votre parcours et votre date.</p>
+        </li>
+        <li class="js-step">
+          <span class="js-num" aria-hidden="true">2</span>
+          <div class="js-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><rect x="2" y="11" width="20" height="7" rx="2" stroke="currentColor" stroke-width="1.6"/><circle cx="7" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/><circle cx="17" cy="18" r="2" stroke="currentColor" stroke-width="1.6"/></svg>
+          </div>
+          <h3 data-i18n="howto.s2t">Je gare ma voiture</h3>
+          <p data-i18n="howto.s2d">Parking gratuit à la base. Elle vous attend là à votre retour.</p>
+        </li>
+        <li class="js-step">
+          <span class="js-num" aria-hidden="true">3</span>
+          <div class="js-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6l7-3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 data-i18n-html="howto.s3t">Équipement &amp; briefing</h3>
+          <p data-i18n="howto.s3d">Canoë, pagaie, gilet, pochon étanche. Consignes de sécurité incluses.</p>
+        </li>
+        <li class="js-step">
+          <span class="js-num" aria-hidden="true">4</span>
+          <div class="js-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M2 14c2 2 4 2 6 0s4-2 6 0 4 2 6 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 14l2-6c0.5-1.5 1.5-1.5 2 0l1.5 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 data-i18n="howto.s4t">Je descends l'Hérault</h3>
+          <p data-i18n="howto.s4d">Gorges, falaises, baignades — profitez à votre rythme.</p>
+        </li>
+        <li class="js-step js-step--highlight">
+          <span class="js-num" aria-hidden="true">5</span>
+          <div class="js-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 3v18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M5 4l14 4-14 4V4Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" fill="currentColor" fill-opacity="0.2"/><path d="M3 21c1.5-1 4-1 6 0s4.5 1 6 0" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="howto.s5t">J'arrive à Aubanel</h3>
+          <p data-i18n="howto.s5d">La plage d'Aubanel marque votre arrivée. Photos, baignade, pique-nique.</p>
+        </li>
+        <li class="js-step js-step--highlight">
+          <span class="js-num" aria-hidden="true">6</span>
+          <div class="js-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M3 16V9a2 2 0 0 1 2-2h9l5 4v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="17.5" r="1.8" stroke="currentColor" stroke-width="1.6"/><circle cx="16.5" cy="17.5" r="1.8" stroke="currentColor" stroke-width="1.6"/><path d="M3 13h14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+          </div>
+          <h3 data-i18n="howto.s6t">Navette retour</h3>
+          <p data-i18n="howto.s6d">Canoë Horizon vous ramène à votre base. Votre voiture est là.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="wave-divider wave-into-sand" aria-hidden="true">
+    <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,46 C220,8 420,82 720,42 C1020,4 1220,80 1440,44 L1440,90 L0,90 Z"></path></svg>
+  </div>
+
+  <!-- ===================== CARTE INTERACTIVE LEAFLET ===================== -->
+  <section class="section section-tinted" id="carte">
+    <div class="container">
+      <p class="section-eyebrow section-eyebrow--center" data-i18n="map.eyebrow">Nos parcours sur l'Hérault</p>
+      <h2 style="text-align:center; margin-bottom: 0.3rem;" data-i18n="map.title">La rivière, vos choix</h2>
+      <p style="text-align:center; color:var(--text-muted); margin-bottom: 0; font-size:1rem;" data-i18n="map.sub">Sélectionnez un parcours pour le visualiser sur la carte.</p>
+
+      <div class="map-section-wrap">
+        <div class="route-filters" role="group" aria-label="Filtrer les parcours">
+          <button class="route-btn route-btn--6 active" data-route="6" aria-pressed="true" data-i18n="map.btn6">6 km — Découverte Sportive</button>
+          <button class="route-btn route-btn--7" data-route="7" aria-pressed="false" data-i18n="map.btn7">7 km — Familial</button>
+          <button class="route-btn route-btn--9" data-route="9" aria-pressed="false" data-i18n="map.btn9">9 km — Découverte</button>
+          <button class="route-btn route-btn--13" data-route="13" aria-pressed="false" data-i18n="map.btn13">13 km — Aventure</button>
+        </div>
+
+        <div id="leaflet-map" aria-label="Carte interactive des parcours canoë sur l'Hérault"></div>
+
+        <div class="route-legend" aria-hidden="true">
+          <span class="route-legend-item"><span class="route-legend-line" style="background:#7FAF59;"></span><span data-i18n="map.btn6">6 km — Découverte Sportive</span></span>
+          <span class="route-legend-item"><span class="route-legend-line" style="background:#7BC8C3;"></span><span data-i18n="map.btn7">7 km — Familial</span></span>
+          <span class="route-legend-item"><span class="route-legend-line" style="background:#F59E42;"></span><span data-i18n="map.btn9">9 km — Découverte</span></span>
+          <span class="route-legend-item"><span class="route-legend-line" style="background:#D62828;"></span><span data-i18n="map.btn13">13 km — Aventure</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AVIS CLIENTS ===================== -->
+  <section class="section" id="avis">
+    <div class="container">
+      <p class="section-eyebrow section-eyebrow--center" data-i18n="reviews.eyebrow">Ils ont vécu l'aventure</p>
+
+      <div class="carousel" id="testi-carousel" aria-roledescription="carrousel" aria-label="Avis clients">
+        <div class="carousel-viewport">
+        <div class="carousel-track" id="testi-track">
+
+          <div class="testi-card" role="group" aria-label="Avis 1 sur 5">
+            <span class="testi-avatar" aria-hidden="true">MD</span>
+            <p class="testi-name">Marie D.</p>
+            <p class="testi-date">Mai 2024</p>
+            <div class="testi-stars" aria-hidden="true">★★★★★</div>
+            <p class="testi-text">Super expérience en famille. Le parcours Familial depuis Agonès est parfait avec des enfants, organisation impeccable et très accueillant.</p>
+          </div>
+
+          <div class="testi-card" role="group" aria-label="Avis 2 sur 5">
+            <span class="testi-avatar" aria-hidden="true">TL</span>
+            <p class="testi-name">Thomas L.</p>
+            <p class="testi-date">Août 2024</p>
+            <div class="testi-stars" aria-hidden="true">★★★★★</div>
+            <p class="testi-text">Paysages magnifiques, organisation impeccable. Le parcours Familial (7 km) est accessible, idéal pour une première sortie.</p>
+          </div>
+
+          <div class="testi-card" role="group" aria-label="Avis 3 sur 5">
+            <span class="testi-avatar" aria-hidden="true">SR</span>
+            <p class="testi-name">Sophie R.</p>
+            <p class="testi-date">Juillet 2024</p>
+            <div class="testi-stars" aria-hidden="true">★★★★★</div>
+            <p class="testi-text">Eaux cristallines, plages sauvages, une journée inoubliable. On reviendra c'est sûr !</p>
+          </div>
+
+          <div class="testi-card" role="group" aria-label="Avis 4 sur 5">
+            <span class="testi-avatar" aria-hidden="true">JR</span>
+            <p class="testi-name">Julien R.</p>
+            <p class="testi-date">Juin 2024</p>
+            <div class="testi-stars" aria-hidden="true">★★★★★</div>
+            <p class="testi-text">Équipe au top et navette très pratique. Le parcours Aventure (13 km) depuis Laroque est un super challenge, on reviendra l'été prochain.</p>
+          </div>
+
+          <div class="testi-card" role="group" aria-label="Avis 5 sur 5">
+            <span class="testi-avatar" aria-hidden="true">CL</span>
+            <p class="testi-name">Camille &amp; famille</p>
+            <p class="testi-date">Mai 2024</p>
+            <div class="testi-stars" aria-hidden="true">★★★★★</div>
+            <p class="testi-text">Premier canoë pour notre fille de 7 ans, on était un peu inquiets mais tout était hyper rassurant et bien encadré dès la base Agonès.</p>
+          </div>
+
+        </div>
+        </div>
+
+        <button class="carousel-btn carousel-prev" id="testi-prev" aria-label="Avis précédent">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="#264653" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="carousel-btn carousel-next" id="testi-next" aria-label="Avis suivant">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="#264653" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="carousel-dots" id="testi-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section class="section section-tinted" id="faq">
+    <div class="container container-narrow">
+      <p class="section-eyebrow section-eyebrow--center" data-i18n="faq.eyebrow">Questions fréquentes</p>
+
+      <div class="faq-list">
+        <details class="faq-item" name="faq">
+          <summary data-i18n="faq.q1">Faut-il savoir nager ?</summary>
+          <p data-i18n-html="faq.a1">Savoir nager n'est pas obligatoire. Le gilet de flottaison est fourni et obligatoire pour tous. Tous nos parcours sont adaptés aux débutants et encadrés par une équipe professionnelle.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary data-i18n="faq.q2">Quel parcours choisir ?</summary>
+          <p data-i18n-html="faq.a2">Pour une première sortie en famille avec de jeunes enfants (dès 6 ans), le parcours <strong>Familial 7 km</strong> depuis la Base Agonès est idéal. Pour les 6 ans et plus qui veulent voir plus de paysages, optez pour la <strong>Découverte 9 km</strong> depuis La Combe. Pour les 12 ans et plus en quête de sensations, la <strong>Découverte Sportive 6 km</strong> ou l'<strong>Aventure 13 km</strong> depuis Laroque sont faites pour vous.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary data-i18n="faq.q3">Où sont les bases de départ ?</summary>
+          <p data-i18n-html="faq.a3">Il y a 3 bases de départ selon le parcours choisi : <strong>Base Agonès</strong> pour les 6 et 7 km (43°51'43"N 3°42'24"E), <strong>Base La Combe</strong> pour le 9 km (43°53'50"N 3°44'02"E), et <strong>Base Canoë Horizon Laroque</strong> pour le 13 km (43°55'25"N 3°43'20"E). Un parking gratuit est disponible à chaque base. La navette vous ramène à votre véhicule en fin de parcours.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary data-i18n="faq.q4">Les enfants peuvent-ils participer ?</summary>
+          <p data-i18n-html="faq.a4">Oui ! Les parcours <strong>Familial (7 km)</strong> et <strong>Découverte (9 km)</strong> sont accessibles dès 6 ans. Les parcours <strong>Découverte Sportive (6 km)</strong> et <strong>Aventure (13 km)</strong> sont réservés aux 12 ans et plus.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary data-i18n="faq.q5">Tous les parcours arrivent-ils au même endroit ?</summary>
+          <p data-i18n-html="faq.a5">Oui, tous les parcours se terminent à <strong>Aubanel</strong> (43°51'21"N 3°40'47"E). La navette Canoë Horizon vous ramène ensuite à votre base de départ respective.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary data-i18n="faq.q6">Les chiens sont-ils acceptés ?</summary>
+          <p data-i18n-html="faq.a6">Les chiens sont acceptés à bord sous la responsabilité de leur maître, dans la limite des places disponibles. Merci de nous prévenir lors de la réservation.</p>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary data-i18n="faq.q7">Peut-on pique-niquer ?</summary>
+          <p data-i18n-html="faq.a7">Bien sûr ! Plusieurs plages et zones ombragées le long du parcours sont parfaites pour une pause pique-nique. Pensez à emporter vos déchets.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== RÉSERVATION / CTA FINAL ===================== -->
+  <section class="cta-final" id="reservation">
+    <div class="container cta-final-inner">
+      <h2 data-i18n="cta.title">Prêt à embarquer ?</h2>
+      <p data-i18n="cta.desc">Réservez votre descente dès maintenant et profitez des Gorges de l'Hérault en toute tranquillité.</p>
+      <a href="tel:+33632369678" class="btn btn-primary btn-lg" data-i18n="nav.reserve">Réserver en ligne</a>
+    </div>
+  </section>
+
+</main>
+
+<div class="wave-divider wave-into-footer" aria-hidden="true">
+  <svg viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0,40 C220,84 420,4 720,44 C1020,84 1220,4 1440,42 L1440,90 L0,90 Z"></path></svg>
+</div>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="site-footer" id="contact">
+  <div class="container footer-grid">
+    <div class="footer-col footer-col--brand">
+      <a href="#hero" class="logo logo-footer">
+        <img class="logo-icon" src="images/logo.png" alt="" width="36" height="36">
+        <span class="logo-text">Canoë Horizon</span>
+      </a>
+      <p data-i18n="footer.tagline">Vivez l'Hérault autrement, des moments simples, des souvenirs inoubliables.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3 data-i18n="footer.nav">Informations</h3>
+      <ul class="footer-links">
+        <li><a href="#parcours" data-i18n="footer.parcours">Nos parcours</a></li>
+        <li><a href="#carte" data-i18n="footer.carte">Carte interactive</a></li>
+        <li><a href="#faq" data-i18n="footer.infos">Infos pratiques</a></li>
+        <li><a href="#gorges" data-i18n="footer.decouvrir">À découvrir</a></li>
+        <li><a href="#avis" data-i18n="footer.avis">Avis clients</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h3 data-i18n="footer.bases">Nos bases</h3>
+      <address>
+        <strong>Base Laroque</strong> — 34190 Laroque<br>
+        <strong>Base La Combe</strong> — Brissac<br>
+        <strong>Base Agonès</strong> — Agonès<br>
+        <br>
+        <a href="tel:+33632369678">06 32 36 96 78</a><br>
+        <a href="mailto:contact@canoehorizon.fr">contact@canoehorizon.fr</a>
+      </address>
+      <a href="https://maps.google.com/?q=Canoë+Horizon+Laroque" target="_blank" rel="noopener" class="footer-map-link" data-i18n="gmaps">Voir sur Google Maps</a>
+    </div>
+
+    <div class="footer-col">
+      <h3 data-i18n="footer.hours">Horaires (saison)</h3>
+      <ul class="footer-hours">
+        <li><span data-i18n="footer.h1l">Avril - Juin</span><span>9h00 - 18h00</span></li>
+        <li><span data-i18n="footer.h2l">Juillet - Août</span><span>8h00 - 19h00</span></li>
+        <li><span data-i18n="footer.h3l">Septembre</span><span>9h00 - 17h30</span></li>
+      </ul>
+    </div>
+
+    <div class="footer-col footer-col--cta">
+      <div class="footer-cta-box">
+        <h3 data-i18n="footer.cta_title">Prêt à embarquer ?</h3>
+        <p data-i18n="footer.cta_desc">Réservez votre descente dès maintenant !</p>
+        <a href="#reservation" class="btn btn-primary btn-block" data-i18n="nav.reserve">Réserver en ligne</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <div class="social-links">
+      <a href="#" aria-label="Facebook Canoë Horizon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M14 9h2.5V6H14c-1.7 0-3 1.3-3 3v2H9v3h2v7h3v-7h2.2l.8-3H14V9.5c0-.3.2-.5.5-.5Z" fill="#F8F7F2"/></svg>
+      </a>
+      <a href="#" aria-label="Instagram Canoë Horizon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="#F8F7F2" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="#F8F7F2" stroke-width="1.6"/><circle cx="17" cy="7" r="1" fill="#F8F7F2"/></svg>
+      </a>
+      <a href="#" aria-label="Google Canoë Horizon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#F8F7F2" stroke-width="1.6"/><text x="12" y="16" font-size="11" font-weight="700" text-anchor="middle" fill="#F8F7F2" font-family="Poppins, sans-serif">G</text></svg>
+      </a>
+    </div>
+    <p data-i18n="footer.copy">© 2026 Canoë Horizon — Tous droits réservés</p>
+    <div class="footer-legal">
+      <a href="#" data-i18n="footer.legal">Mentions légales</a>
+      <a href="#" data-i18n-html="footer.cgv">CGV</a>
+      <a href="#" data-i18n="footer.privacy">Politique de confidentialité</a>
+    </div>
+    <p class="footer-credit" data-i18n="footer.credit">Site créé avec ❤ en France</p>
+  </div>
+</footer>
+
+<!-- Sticky CTA mobile -->
+<div class="sticky-cta" id="sticky-cta">
+  <a href="#reservation" class="btn btn-primary btn-block" data-i18n="sticky.reserve">Réserver en ligne</a>
+</div>
+
+<script src="js/i18n.js"></script>
+<script src="js/script.js"></script>
+<!-- Leaflet JS — chargé en dernier pour garantir que L est disponible -->
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+<script src="js/map.js"></script>
+</body>
+</html>
