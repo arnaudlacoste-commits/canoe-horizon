@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ===== Scroll reveal animations ===== */
   const revealTargets = document.querySelectorAll(
-    '.course-card, .discover-card, .timeline-step, .faq-item, .testi-card'
+    '.course-card, .discover-card, .timeline-step, .faq-item, .testi-card, .poster-wrap'
   );
   revealTargets.forEach(el => el.classList.add('reveal'));
 

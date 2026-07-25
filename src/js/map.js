@@ -143,20 +143,25 @@ var IDX = {
 };
 
 // ── DÉFINITION DES PARCOURS ──────────────────────────────────────
+// Modèle 2026 : 2 seules bases avec parking (Laroque et Aubanel).
+// 6 km  : Laroque → Agonès (parking Laroque, navette RETOUR incluse)
+// 13 km : Laroque → Aubanel (parking Laroque, navette RETOUR incluse)
+// 7 km  : Agonès → Aubanel (parking Aubanel, navette ALLER incluse jusqu'à Agonès)
+// 9 km  : La Combe → Aubanel (parking Aubanel, navette ALLER incluse jusqu'à La Combe)
 var PARCOURS = {
   '6': {
-    nom:     'Découverte Sportive',
-    couleur: '#7FAF59',
-    coords:  HERAULT.slice(IDX.AGONES)       // méandre est → Aubanel
+    nom:     'Sportif',
+    couleur: '#F59E42',
+    coords:  HERAULT.slice(IDX.LAROQUE, IDX.AGONES + 1)  // Laroque → Agonès
   },
   '7': {
     nom:     'Familial',
-    couleur: '#7BC8C3',
+    couleur: '#7FAF59',
     coords:  HERAULT.slice(IDX.AGONES_7KM)  // approche NO → méandre → Aubanel
   },
   '9': {
     nom:     'Découverte',
-    couleur: '#F59E42',
+    couleur: '#2F80C4',
     coords:  HERAULT.slice(IDX.LA_COMBE)
   },
   '13': {
@@ -171,30 +176,30 @@ var BASES = [
   {
     coords:  [43.9236528, 3.7223778],  // coordonnées officielles
     label:   'Base Laroque',
-    detail:  'Départ 13 km — Aventure',
-    couleur: '#D62828',
-    routes:  ['13']
+    detail:  'Départ 6 km &amp; 13 km — Parking gratuit',
+    couleur: '#264653',
+    routes:  ['6', '13']
   },
   {
     coords:  [43.8974106, 3.7346164],  // point OSM le plus proche
     label:   'Base La Combe',
     detail:  'Départ 9 km — Découverte',
-    couleur: '#F59E42',
-    routes:  ['9', '13']
+    couleur: '#2F80C4',
+    routes:  ['9']
   },
   {
     coords:  [43.8617551, 3.7069878],  // point OSM exact
     label:   'Base Agonès',
-    detail:  'Départ 6 km &amp; 7 km',
+    detail:  'Arrivée 6 km · Départ 7 km',
     couleur: '#264653',
-    routes:  ['6', '7', '9', '13']
+    routes:  ['6', '7']
   },
   {
     coords:  [43.8554813, 3.7080578],  // point OSM le plus proche de l'arrivée
     label:   'Arrivée Aubanel',
-    detail:  'Tous les parcours',
+    detail:  'Arrivée 7, 9 &amp; 13 km — Parking gratuit',
     couleur: '#264653',
-    routes:  ['6', '7', '9', '13']
+    routes:  ['7', '9', '13']
   }
 ];
 

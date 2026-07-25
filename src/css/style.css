@@ -15,12 +15,12 @@
   --white: #ffffff;
 
   /* Course accent colors — official palette */
-  --c-decouverte: #7FAF59;      /* 6 km Découverte Sportive — Vert */
-  --c-decouverte-dark: #6b9a47;
-  --c-famille: #7BC8C3;          /* 7 km Familial — Bleu/Turquoise */
-  --c-famille-dark: #5fb0ab;
-  --c-paysages: #F59E42;         /* 9 km Découverte — Orange */
-  --c-paysages-dark: #d4862e;
+  --c-sportif: #F59E42;          /* 6 km Sportif — Orange */
+  --c-sportif-dark: #d4862e;
+  --c-famille: #7FAF59;          /* 7 km Familial — Vert */
+  --c-famille-dark: #6b9a47;
+  --c-decouverte: #2F80C4;       /* 9 km Découverte — Bleu */
+  --c-decouverte-dark: #235f96;
   --c-aventure: #D62828;         /* 13 km Aventure — Rouge */
   --c-aventure-dark: #b52020;
 
@@ -374,9 +374,9 @@ h3 { font-size: 1.2rem; }
   z-index: 2;
 }
 
-.course-card--decouverte .badge { background: var(--c-decouverte); }
+.course-card--sportif .badge { background: var(--c-sportif); }
 .course-card--famille .badge { background: var(--c-famille); }
-.course-card--paysages .badge { background: var(--c-paysages); }
+.course-card--decouverte .badge { background: var(--c-decouverte); }
 .course-card--aventure .badge { background: var(--c-aventure); }
 
 .course-body { padding: var(--space-2) var(--space-2) var(--space-3); display: flex; flex-direction: column; gap: 0.5rem; flex: 1; }
@@ -387,15 +387,15 @@ h3 { font-size: 1.2rem; }
   border-radius: 50%;
   flex-shrink: 0;
 }
-.course-card--decouverte .course-icon { background: var(--c-decouverte); }
+.course-card--sportif .course-icon { background: var(--c-sportif); }
 .course-card--famille .course-icon { background: var(--c-famille); }
-.course-card--paysages .course-icon { background: var(--c-paysages); }
+.course-card--decouverte .course-icon { background: var(--c-decouverte); }
 .course-card--aventure .course-icon { background: var(--c-aventure); }
 
 .course-title-row h3 { font-size: 1.1rem; }
-.course-card--decouverte h3 { color: var(--c-decouverte-dark); }
+.course-card--sportif h3 { color: var(--c-sportif-dark); }
 .course-card--famille h3 { color: var(--c-famille); }
-.course-card--paysages h3 { color: var(--c-paysages-dark); }
+.course-card--decouverte h3 { color: var(--c-decouverte-dark); }
 .course-card--aventure h3 { color: var(--c-aventure-dark); }
 
 .course-text { color: var(--text-muted); font-size: 0.92rem; min-height: 2.8em; }
@@ -405,12 +405,12 @@ h3 { font-size: 1.2rem; }
 .course-price strong { font-family: 'Poppins', sans-serif; color: var(--deep-blue); }
 .course-price small { color: var(--text-muted); }
 .course-body .btn-course { margin-top: auto; color: #fff; }
-.course-card--decouverte .btn-course { background: var(--c-decouverte); }
-.course-card--decouverte .btn-course:hover { background: var(--c-decouverte-dark); }
+.course-card--sportif .btn-course { background: var(--c-sportif); }
+.course-card--sportif .btn-course:hover { background: var(--c-sportif-dark); }
 .course-card--famille .btn-course { background: var(--c-famille); }
 .course-card--famille .btn-course:hover { background: var(--c-famille-dark); }
-.course-card--paysages .btn-course { background: var(--c-paysages); }
-.course-card--paysages .btn-course:hover { background: var(--c-paysages-dark); }
+.course-card--decouverte .btn-course { background: var(--c-decouverte); }
+.course-card--decouverte .btn-course:hover { background: var(--c-decouverte-dark); }
 .course-card--aventure .btn-course { background: var(--c-aventure); }
 .course-card--aventure .btn-course:hover { background: var(--c-aventure-dark); }
 
@@ -453,9 +453,9 @@ h3 { font-size: 1.2rem; }
 .compare-table tbody tr:last-child td, .compare-table tbody tr:last-child th { border-bottom: none; }
 .compare-table tbody tr:hover { background: rgba(123, 200, 195, 0.08); }
 .compare-table th[scope="row"] { font-family: 'Poppins', sans-serif; }
-.compare-name--decouverte { color: var(--c-decouverte-dark); }
+.compare-name--sportif { color: var(--c-sportif-dark); }
 .compare-name--famille    { color: var(--c-famille-dark); }
-.compare-name--paysages   { color: var(--c-paysages-dark); }
+.compare-name--decouverte   { color: var(--c-decouverte-dark); }
 .compare-name--aventure   { color: var(--c-aventure-dark); }
 
 /* Mobile : masquer la table, afficher les cartes */
@@ -483,9 +483,9 @@ h3 { font-size: 1.2rem; }
   flex-direction: column;
   gap: 0.18rem;
 }
-.cc-card--decouverte .cc-top { background: var(--c-decouverte); }
+.cc-card--sportif .cc-top { background: var(--c-sportif); }
 .cc-card--famille    .cc-top { background: var(--c-famille); }
-.cc-card--paysages   .cc-top { background: var(--c-paysages); }
+.cc-card--decouverte   .cc-top { background: var(--c-decouverte); }
 .cc-card--aventure   .cc-top { background: var(--c-aventure); }
 
 .cc-km {
@@ -544,9 +544,9 @@ h3 { font-size: 1.2rem; }
   color: #fff !important;
   text-align: center;
 }
-.cc-card--decouverte .cc-btn { background: var(--c-decouverte); }
+.cc-card--sportif .cc-btn { background: var(--c-sportif); }
 .cc-card--famille    .cc-btn { background: var(--c-famille); }
-.cc-card--paysages   .cc-btn { background: var(--c-paysages); }
+.cc-card--decouverte   .cc-btn { background: var(--c-decouverte); }
 .cc-card--aventure   .cc-btn { background: var(--c-aventure); }
 .cc-btn:hover { opacity: 0.88; transform: translateY(-1px); }
 
@@ -722,6 +722,7 @@ h3 { font-size: 1.2rem; }
   font-weight: 500;
 }
 .jc-return-inner svg { flex-shrink: 0; color: #7BC8C3; }
+.jc-return-inner + .jc-return-inner { margin-top: 0.5rem; }
 
 /* ── Journey steps grid ── */
 .journey-steps {
@@ -1055,8 +1056,66 @@ h3 { font-size: 1.2rem; }
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
+/* Repérage bref d'un élément ciblé depuis une zone cliquable de l'affiche
+   (voir action "scroll-to" dans js/hotspots.js) */
+.hotspot-highlight {
+  outline: 3px solid var(--mint-dark);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
 /* ============ LEAFLET INTERACTIVE MAP ============ */
-.map-section-wrap { margin-top: var(--space-4); }
+.map-section-wrap { margin-top: var(--space-4); text-align: center; }
+
+.poster-wrap {
+  position: relative;
+  display: inline-block;
+  max-width: 560px;
+  width: 100%;
+}
+
+.parcours-poster {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-medium);
+  margin: 0;
+}
+
+/* Zones cliquables invisibles superposées à l'affiche (voir js/hotspots.js) */
+.poster-hotspot {
+  position: absolute;
+  transform: translateY(-50%);
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.001); /* jamais totalement transparent : reste hit-testable partout */
+  border-radius: 6px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 0 0 1px rgba(38, 70, 67, 0.12);
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+.poster-hotspot:hover,
+.poster-hotspot:focus-visible {
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 2px var(--deep-blue);
+  outline: none;
+}
+
+.poster-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: var(--space-2);
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.poster-download:hover,
+.poster-download:focus-visible { color: var(--deep-blue); }
 
 .route-filters {
   display: flex;
@@ -1079,13 +1138,13 @@ h3 { font-size: 1.2rem; }
   transition: all 0.2s ease;
 }
 .route-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-medium); }
-.route-btn--6.active  { background: #7FAF59; color: #fff; border-color: #7FAF59; }
-.route-btn--7.active  { background: #7BC8C3; color: #fff; border-color: #7BC8C3; }
-.route-btn--9.active  { background: #F59E42; color: #fff; border-color: #F59E42; }
+.route-btn--6.active  { background: #F59E42; color: #fff; border-color: #F59E42; }
+.route-btn--7.active  { background: #7FAF59; color: #fff; border-color: #7FAF59; }
+.route-btn--9.active  { background: #2F80C4; color: #fff; border-color: #2F80C4; }
 .route-btn--13.active { background: #D62828; color: #fff; border-color: #D62828; }
-.route-btn--6:hover  { border-color: #7FAF59; color: #7FAF59; }
-.route-btn--7:hover  { border-color: #7BC8C3; color: #5fb0ab; }
-.route-btn--9:hover  { border-color: #F59E42; color: #d4862e; }
+.route-btn--6:hover  { border-color: #F59E42; color: #d4862e; }
+.route-btn--7:hover  { border-color: #7FAF59; color: #6b9a47; }
+.route-btn--9:hover  { border-color: #2F80C4; color: #235f96; }
 .route-btn--13:hover { border-color: #D62828; color: #D62828; }
 
 #leaflet-map {
