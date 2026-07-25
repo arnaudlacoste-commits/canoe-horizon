@@ -24,6 +24,9 @@
 
 <!-- Leaflet CSS (carte interactive désactivée, voir section #carte) <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css"> -->
 
+<!-- Mapbox GL JS — mini-cartes dans les popups de l'affiche (voir js/popups.js) -->
+<link href="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.css" rel="stylesheet">
+
 <link rel="icon" href="images/logo.png">
 <link rel="stylesheet" href="css/style.css">
 
@@ -907,10 +910,16 @@
 
 <script src="js/i18n.js"></script>
 <script src="js/script.js"></script>
-<script src="js/hotspots.js"></script>
-<!-- Carte interactive Leaflet désactivée (remplacée par l'affiche statique en #carte) — pour la réactiver, décommenter ces 2 lignes et le bloc HTML de la carte en #carte
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+<!-- js/map.js reste chargé pour ses données de tracés (HERAULT/PARCOURS/BASES),
+     réutilisées par js/popups.js pour les mini-cartes Mapbox — sans Leaflet
+     lui-même (déchargé ci-dessous), initMap() n'y trouve pas #leaflet-map et
+     ne fait rien. -->
 <script src="js/map.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v3.7.0/mapbox-gl.js"></script>
+<script src="js/popups.js"></script>
+<script src="js/hotspots.js"></script>
+<!-- Carte interactive Leaflet désactivée (remplacée par l'affiche statique en #carte) — pour la réactiver, décommenter cette ligne et le bloc HTML de la carte en #carte
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
 -->
 
 </body>

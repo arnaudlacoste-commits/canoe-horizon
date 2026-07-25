@@ -5,54 +5,55 @@
    le CENTRE de la zone (pas le coin) — le bouton est recentré en
    CSS via `transform: translateY(-50%)`, voir .poster-hotspot.
    Chaque zone déclenche une action nommée : "open-details" (ouvre
-   un <details> et y scrolle) ou "scroll-to" (scrolle jusqu'à un
-   élément existant et le fait brièvement clignoter pour le repérer).
+   un <details> et y scrolle), "show-base-popup" ou "show-route-popup"
+   (popups définies dans js/popups.js, chargé avant ce fichier).
    ============================================================= */
 
 var POSTER_HOTSPOTS = [
-  // Fiches "PARCOURS" de l'affiche (colonne de gauche), vers les
-  // cartes correspondantes en section #parcours.
+  // Fiches "PARCOURS" de l'affiche (colonne de gauche) — ouvrent une
+  // popup avec le profil du parcours (stats scrapées depuis la fiche
+  // .course-card déjà traduite + tracé sur mini-carte Mapbox).
   {
     top: 32.32, left: 4.4, width: 19.0, height: 16.73,
-    action: 'scroll-to', target: '.course-card--sportif',
-    label: 'Parcours 6 km Sportif — voir la fiche complète'
+    action: 'show-route-popup', routeKey: '6', target: '.course-card--sportif',
+    label: 'Parcours 6 km Sportif — voir le profil du parcours'
   },
   {
     top: 49.97, left: 4.4, width: 19.0, height: 14.65,
-    action: 'scroll-to', target: '.course-card--famille',
-    label: 'Parcours 7 km Familial — voir la fiche complète'
+    action: 'show-route-popup', routeKey: '7', target: '.course-card--famille',
+    label: 'Parcours 7 km Familial — voir le profil du parcours'
   },
   {
     top: 66.25, left: 4.4, width: 19.0, height: 14.65,
-    action: 'scroll-to', target: '.course-card--decouverte',
-    label: 'Parcours 9 km Découverte — voir la fiche complète'
+    action: 'show-route-popup', routeKey: '9', target: '.course-card--decouverte',
+    label: 'Parcours 9 km Découverte — voir le profil du parcours'
   },
   {
     top: 81.38, left: 4.4, width: 19.0, height: 12.37,
-    action: 'scroll-to', target: '.course-card--aventure',
-    label: 'Parcours 13 km Aventure — voir la fiche complète'
+    action: 'show-route-popup', routeKey: '13', target: '.course-card--aventure',
+    label: 'Parcours 13 km Aventure — voir le profil du parcours'
   },
-  // Encarts de localisation sur l'illustration de rivière, vers
-  // l'adresse correspondante dans le footer ("Nos bases").
+  // Encarts de localisation sur l'illustration de rivière — ouvrent une
+  // popup avec l'adresse et un point sur mini-carte Mapbox.
   {
     top: 28.65, left: 30.57, width: 18.75, height: 13.67,
-    action: 'scroll-to', target: '#base-laroque',
-    label: "Base Laroque — voir l'adresse complète"
+    action: 'show-base-popup', baseKey: 'laroque',
+    label: 'Base Laroque — voir l’adresse sur la carte'
   },
   {
     top: 52.25, left: 65.92, width: 21.48, height: 10.35,
-    action: 'scroll-to', target: '#base-la-combe',
-    label: "Base La Combe — voir l'adresse complète"
+    action: 'show-base-popup', baseKey: 'lacombe',
+    label: 'Base La Combe — voir l’adresse sur la carte'
   },
   {
     top: 58.30, left: 28.13, width: 16.60, height: 10.74,
-    action: 'scroll-to', target: '#base-agones',
-    label: "Base Agonès — voir l'adresse complète"
+    action: 'show-base-popup', baseKey: 'agones',
+    label: 'Base Agonès — voir l’adresse sur la carte'
   },
   {
     top: 78.22, left: 59.38, width: 28.02, height: 12.17,
-    action: 'scroll-to', target: '#base-aubanel',
-    label: "Arrivée Aubanel — voir l'adresse complète"
+    action: 'show-base-popup', baseKey: 'aubanel',
+    label: 'Arrivée Aubanel — voir l’adresse sur la carte'
   },
   // Bandeau "Pour votre sécurité" de l'affiche poster-parcours.png
   // (image source 1024×1536px). Bande mesurée par analyse de
@@ -87,8 +88,8 @@ var POSTER_HOTSPOTS = [
 ];
 
 var HOTSPOT_ACTIONS = {
-  'open-details': function (target) {
-    var el = document.querySelector(target);
+  'open-details': function (zone) {
+    var el = document.querySelector(zone.target);
     if (!el) return;
     el.open = true;
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -98,20 +99,11 @@ var HOTSPOT_ACTIONS = {
     var summary = el.querySelector('summary');
     if (summary) summary.focus();
   },
-  'scroll-to': function (target) {
-    var el = document.querySelector(target);
-    if (!el) return;
-    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    // On focalise un intitulé lisible (titre de carte, adresse...) plutôt
-    // que le conteneur lui-même, pour une annonce plus claire en lecteur
-    // d'écran ; on retombe sur l'élément cible si aucun titre n'est trouvé.
-    var focusEl = el.querySelector('h3') || el;
-    if (!focusEl.hasAttribute('tabindex')) focusEl.setAttribute('tabindex', '-1');
-    focusEl.focus({ preventScroll: true });
-    el.classList.add('hotspot-highlight');
-    window.setTimeout(function () {
-      el.classList.remove('hotspot-highlight');
-    }, 1600);
+  'show-base-popup': function (zone, triggerEl) {
+    showBasePopup(zone.baseKey, triggerEl);
+  },
+  'show-route-popup': function (zone, triggerEl) {
+    showRoutePopup(zone.routeKey, zone.target, triggerEl);
   }
 };
 
@@ -130,10 +122,12 @@ function initHotspotLayer(wrapId, zones) {
     btn.setAttribute('aria-label', zone.label);
     if (zone.action === 'open-details') {
       btn.setAttribute('aria-controls', zone.target.replace('#', ''));
+    } else if (zone.action === 'show-base-popup' || zone.action === 'show-route-popup') {
+      btn.setAttribute('aria-haspopup', 'dialog');
     }
     btn.addEventListener('click', function () {
       var run = HOTSPOT_ACTIONS[zone.action];
-      if (run) run(zone.target);
+      if (run) run(zone, btn);
     });
     wrap.appendChild(btn);
   });
