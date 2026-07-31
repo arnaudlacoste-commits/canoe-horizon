@@ -36,7 +36,7 @@ fr: {
   "why.title": "Pourquoi choisir Canoë Horizon ?",
   "why.1": "4 parcours et 2 bases au cœur des Gorges de l'Hérault",
   "why.2": "Parking gratuit à Laroque et Aubanel",
-  "why.3": "Navette gratuite selon le parcours",
+  "why.3": "Navette gratuite",
   "why.4": "Matériel récent et entretenu",
   "why.5": "Départs réguliers sans attente",
   "why.6": "Activité familiale dès 6 ans",
