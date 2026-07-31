@@ -129,6 +129,11 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = 'mailto:' + CONTACT_TO
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
+
+      const hint = document.getElementById('cf-hint');
+      const confirmMsg = document.getElementById('cf-confirm');
+      if (hint) hint.hidden = true;
+      if (confirmMsg) confirmMsg.hidden = false;
     });
   }
 

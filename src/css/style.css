@@ -1113,6 +1113,21 @@ h3 { font-size: 1.2rem; }
   text-align: center;
   margin: 0;
 }
+.contact-confirm {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  background: rgba(127, 175, 89, 0.12);
+  color: var(--green-dark);
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  margin: 0;
+}
+.contact-confirm[hidden] { display: none; }
+.contact-confirm svg { flex-shrink: 0; margin-top: 0.1rem; }
+.contact-confirm a { font-weight: 600; text-decoration: underline; }
 
 /* ============ CTA FINAL ============ */
 .cta-final {

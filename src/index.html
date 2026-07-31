@@ -905,7 +905,11 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m4 12 16-8-6 16-2.5-6L4 12Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>
             <span data-i18n="contact.send">Envoyer le message</span>
           </button>
-          <p class="contact-hint" data-i18n="contact.hint">L'envoi ouvre votre messagerie avec le message pré-rempli — rien ne part sans vous.</p>
+          <p class="contact-hint" id="cf-hint" data-i18n="contact.hint">L'envoi ouvre votre messagerie avec le message pré-rempli — rien ne part sans vous.</p>
+          <p class="contact-confirm" id="cf-confirm" role="status" hidden>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/><path d="m8 12.5 2.5 2.5L16 9.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span data-i18n-html="contact.confirm">Votre messagerie s'est ouverte avec le message pré-rempli — cliquez sur <strong>Envoyer</strong> dans votre e-mail pour le faire partir. Rien ne s'est ouvert ? Appelez-nous au <a href="tel:+33608849067">06 08 84 90 67</a>.</span>
+          </p>
         </form>
       </div>
     </div>
