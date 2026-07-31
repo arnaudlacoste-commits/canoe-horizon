@@ -104,10 +104,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ===== Contact form → mailto (site statique, pas de backend) ===== */
+  /* Adresse assemblée à l'exécution pour ne pas être moissonnable dans le HTML.
+     Temporaire : à remplacer par contact@canoehorizon.fr quand le domaine existera. */
+  const CONTACT_TO = ['paulinedmg', 'icloud.com'].join('@');
   const contactForm = document.getElementById('contact-form');
   if (contactForm) {
+    const formLoadedAt = Date.now();
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      /* Antispam : honeypot rempli ou soumission trop rapide = robot */
+      if (contactForm.elements.website.value) return;
+      if (Date.now() - formLoadedAt < 3000) return;
       if (!contactForm.reportValidity()) return;
 
       const name = contactForm.elements.name.value.trim();
@@ -119,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const subject = '[Site] ' + subjectLabel + ' — ' + name;
       const body = message + '\n\n—\n' + name + '\n' + email + (phone ? '\n' + phone : '');
-      window.location.href = 'mailto:contact@canoehorizon.fr'
+      window.location.href = 'mailto:' + CONTACT_TO
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);
     });

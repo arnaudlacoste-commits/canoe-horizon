@@ -1100,6 +1100,13 @@ h3 { font-size: 1.2rem; }
   box-shadow: 0 0 0 3px rgba(123, 200, 195, 0.25);
   background: var(--white);
 }
+/* Honeypot antispam : champ invisible pour les humains, rempli par les robots */
+.contact-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px; height: 1px;
+  overflow: hidden;
+}
 .contact-hint {
   font-size: 0.82rem;
   color: var(--text-muted);
