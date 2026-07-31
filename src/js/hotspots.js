@@ -19,7 +19,7 @@ var POSTER_HOTSPOTS = [
     label: 'Parcours 6 km Sportif — voir le profil du parcours'
   },
   {
-    top: 49.97, left: 4.4, width: 19.0, height: 14.65,
+    top: 50.16, left: 4.4, width: 19.0, height: 15.95,
     action: 'show-route-popup', routeKey: '7', target: '.course-card--famille',
     label: 'Parcours 7 km Familial — voir le profil du parcours'
   },
@@ -29,7 +29,7 @@ var POSTER_HOTSPOTS = [
     label: 'Parcours 9 km Découverte — voir le profil du parcours'
   },
   {
-    top: 81.38, left: 4.4, width: 19.0, height: 12.37,
+    top: 81.64, left: 4.4, width: 19.0, height: 13.54,
     action: 'show-route-popup', routeKey: '13', target: '.course-card--aventure',
     label: 'Parcours 13 km Aventure — voir le profil du parcours'
   },
@@ -41,17 +41,17 @@ var POSTER_HOTSPOTS = [
     label: 'Base Laroque — voir l’adresse sur la carte'
   },
   {
-    top: 52.25, left: 65.92, width: 21.48, height: 10.35,
+    top: 52.73, left: 65.82, width: 18.55, height: 11.46,
     action: 'show-base-popup', baseKey: 'lacombe',
     label: 'Base La Combe — voir l’adresse sur la carte'
   },
   {
-    top: 58.30, left: 28.13, width: 16.60, height: 10.74,
+    top: 58.92, left: 28.13, width: 16.60, height: 12.11,
     action: 'show-base-popup', baseKey: 'agones',
     label: 'Base Agonès — voir l’adresse sur la carte'
   },
   {
-    top: 78.22, left: 59.38, width: 28.02, height: 12.17,
+    top: 78.22, left: 58.40, width: 17.58, height: 12.17,
     action: 'show-base-popup', baseKey: 'aubanel',
     label: 'Arrivée Aubanel — voir l’adresse sur la carte'
   },
