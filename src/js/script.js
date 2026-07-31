@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
     revealTargets.forEach(el => el.classList.add('is-visible'));
   }
 
-  /* ===== Contact form → mailto (site statique, pas de backend) ===== */
+  /* ===== Contact form → envoi via FormSubmit (site statique, pas de backend) ===== */
   /* Adresse assemblée à l'exécution pour ne pas être moissonnable dans le HTML.
      Temporaire : à remplacer par contact@canoehorizon.fr quand le domaine existera. */
   const CONTACT_TO = ['paulinedmg', 'icloud.com'].join('@');
@@ -124,16 +124,36 @@ document.addEventListener('DOMContentLoaded', () => {
       const subjectLabel = subjectSelect.options[subjectSelect.selectedIndex].textContent;
       const message = contactForm.elements.message.value.trim();
 
-      const subject = '[Site] ' + subjectLabel + ' — ' + name;
-      const body = message + '\n\n—\n' + name + '\n' + email + (phone ? '\n' + phone : '');
-      window.location.href = 'mailto:' + CONTACT_TO
-        + '?subject=' + encodeURIComponent(subject)
-        + '&body=' + encodeURIComponent(body);
-
-      const hint = document.getElementById('cf-hint');
+      const btn = contactForm.querySelector('button[type="submit"]');
       const confirmMsg = document.getElementById('cf-confirm');
-      if (hint) hint.hidden = true;
-      if (confirmMsg) confirmMsg.hidden = false;
+      const errorMsg = document.getElementById('cf-error');
+      if (confirmMsg) confirmMsg.hidden = true;
+      if (errorMsg) errorMsg.hidden = true;
+      btn.disabled = true;
+
+      fetch('https://formsubmit.co/ajax/' + CONTACT_TO, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: '[Site] ' + subjectLabel + ' — ' + name,
+          _template: 'table',
+          _captcha: 'false',
+          nom: name,
+          email: email,
+          telephone: phone || '—',
+          sujet: subjectLabel,
+          message: message
+        })
+      })
+        .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(() => {
+          if (confirmMsg) confirmMsg.hidden = false;
+          contactForm.reset();
+        })
+        .catch(() => {
+          if (errorMsg) errorMsg.hidden = false;
+        })
+        .finally(() => { btn.disabled = false; });
     });
   }
 
