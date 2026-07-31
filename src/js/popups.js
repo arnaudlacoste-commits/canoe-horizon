@@ -24,7 +24,7 @@ var POPUP_BASES = {
 // proche d'Aubanel, pas vers Agonès — voir le correctif dans map.js).
 var POPUP_BASE_LNGLAT = {
   laroque: [3.7223778, 43.9236528],
-  lacombe: [3.7346164, 43.8974106],
+  lacombe: [3.7374562, 43.9016306],
   agones:  [3.7329679, 43.8857366],
   aubanel: [3.7080578, 43.8554813]
 };
