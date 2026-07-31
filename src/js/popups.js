@@ -19,14 +19,13 @@ var POPUP_BASES = {
 
 // Coordonnées [lng, lat] (Mapbox) des 4 bases — reprises des marqueurs
 // définis dans js/map.js (BASES y est en [lat, lng], ordre Leaflet).
-// agones : corrigé pour rester synchronisé avec BASES.coords dans map.js
-// (l'ancienne valeur pointait par erreur vers un lieu-dit de Brissac,
-// proche d'Aubanel, pas vers Agonès — voir le correctif dans map.js).
+// agones et aubanel : resynchronisés avec BASES.coords dans map.js
+// à chaque correctif de position — voir map.js pour le détail.
 var POPUP_BASE_LNGLAT = {
   laroque: [3.7223778, 43.9236528],
   lacombe: [3.7375738, 43.9076640],
   agones:  [3.7312254, 43.8929018],
-  aubanel: [3.7080578, 43.8554813]
+  aubanel: [3.7069878, 43.8617551]
 };
 
 var popupMapInstance = null;

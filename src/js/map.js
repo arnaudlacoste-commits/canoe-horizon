@@ -381,7 +381,15 @@ var IDX = {
   AGONES:     119,   // Base Agonès          (index 119) — point réel repositionné
                      // puis remonté ~300 m au-dessus du Pont de la
                      // Route de Brissac, sur demande
-  AUBANEL:    HERAULT.length - 1
+  // Base Aubanel (index 311) — corrigé : le point n'était pas au bon
+  // endroit du méandre en épingle (virage 180°) où se trouve le vrai
+  // site (bar « Aubanel » à 19 m, aire de parking à 59 m, base canoë
+  // « Canoë Le Moulin Aubanel » à 76 m — tous vérifiés via OSM), il
+  // était placé ~776 m plus au sud, sur un point de rivière qui n'a
+  // pas de vocation d'arrivée. Le tableau HERAULT garde des points
+  // au-delà (jusqu'à 329) qui suivent la rivière plus au sud, mais
+  // ne font plus partie d'aucun tracé.
+  AUBANEL:    311
 };
 
 // ── DÉFINITION DES PARCOURS ──────────────────────────────────────
@@ -401,17 +409,17 @@ var PARCOURS = {
   '7': {
     nom:     'Familial',
     couleur: '#7FAF59',
-    coords:  HERAULT.slice(IDX.AGONES)  // Agonès → Aubanel
+    coords:  HERAULT.slice(IDX.AGONES, IDX.AUBANEL + 1)  // Agonès → Aubanel
   },
   '9': {
     nom:     'Découverte',
     couleur: '#2F80C4',
-    coords:  HERAULT.slice(IDX.LA_COMBE)
+    coords:  HERAULT.slice(IDX.LA_COMBE, IDX.AUBANEL + 1)
   },
   '13': {
     nom:     'Aventure',
     couleur: '#D62828',
-    coords:  HERAULT.slice(IDX.LAROQUE)
+    coords:  HERAULT.slice(IDX.LAROQUE, IDX.AUBANEL + 1)
   }
 };
 
@@ -453,7 +461,12 @@ var BASES = [
     routes:  ['6', '7']
   },
   {
-    coords:  [43.8554813, 3.7080578],  // point OSM le plus proche de l'arrivée
+    // Repositionné sur le vrai site d'arrivée, au virage 180° de la
+    // rivière : bar « Aubanel » (19 m), aire de parking (59 m) et
+    // base canoë « Canoë Le Moulin Aubanel » (76 m) — voir correctif
+    // détaillé sur IDX.AUBANEL. L'ancienne valeur était ~776 m trop
+    // au sud.
+    coords:  [43.8617551, 3.7069878],
     label:   'Arrivée Aubanel',
     detail:  'Arrivée 7, 9 &amp; 13 km — Parking gratuit',
     couleur: '#264653',
