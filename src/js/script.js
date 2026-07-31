@@ -112,12 +112,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const name = contactForm.elements.name.value.trim();
       const email = contactForm.elements.email.value.trim();
+      const phone = contactForm.elements.phone.value.trim();
       const subjectSelect = contactForm.elements.subject;
       const subjectLabel = subjectSelect.options[subjectSelect.selectedIndex].textContent;
       const message = contactForm.elements.message.value.trim();
 
       const subject = '[Site] ' + subjectLabel + ' — ' + name;
-      const body = message + '\n\n—\n' + name + '\n' + email;
+      const body = message + '\n\n—\n' + name + '\n' + email + (phone ? '\n' + phone : '');
       window.location.href = 'mailto:contact@canoehorizon.fr'
         + '?subject=' + encodeURIComponent(subject)
         + '&body=' + encodeURIComponent(body);

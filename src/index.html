@@ -876,14 +876,22 @@
               <input type="email" id="cf-email" name="email" autocomplete="email" required>
             </div>
           </div>
-          <div class="contact-field">
-            <label for="cf-subject" data-i18n="contact.f_subject">Sujet</label>
-            <select id="cf-subject" name="subject">
-              <option value="parcours" data-i18n="contact.s1">Choisir un parcours</option>
-              <option value="groupe" data-i18n="contact.s2">Groupe, CE ou scolaire</option>
-              <option value="conditions" data-i18n="contact.s3">Niveau d'eau &amp; conditions</option>
-              <option value="autre" data-i18n="contact.s4">Autre demande</option>
-            </select>
+          <div class="contact-form-row">
+            <div class="contact-field">
+              <label for="cf-phone" data-i18n="contact.f_phone">Votre téléphone</label>
+              <input type="tel" id="cf-phone" name="phone" autocomplete="tel">
+            </div>
+            <div class="contact-field">
+              <label for="cf-subject" data-i18n="contact.f_subject">Sujet</label>
+              <select id="cf-subject" name="subject">
+                <option value="parcours" data-i18n="contact.s1">Choisir un parcours</option>
+                <option value="groupe" data-i18n="contact.s2">Groupe, CE ou scolaire</option>
+                <option value="anniversaire" data-i18n="contact.s3">Anniversaire</option>
+                <option value="evg" data-i18n="contact.s5">EVG / EVJF</option>
+                <option value="privatisation" data-i18n="contact.s6">Privatisation</option>
+                <option value="autre" data-i18n="contact.s4">Autre demande</option>
+              </select>
+            </div>
           </div>
           <div class="contact-field">
             <label for="cf-message" data-i18n="contact.f_message">Votre message</label>
