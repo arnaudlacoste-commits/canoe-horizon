@@ -414,6 +414,24 @@ h3 { font-size: 1.2rem; }
 .course-card--aventure .btn-course { background: var(--c-aventure); }
 .course-card--aventure .btn-course:hover { background: var(--c-aventure-dark); }
 
+.kayak-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  max-width: 32rem;
+  margin: var(--space-3) auto 0;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius-pill);
+  background: rgba(123, 200, 195, 0.1);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  text-align: center;
+}
+.kayak-note-icon { flex-shrink: 0; color: var(--mint-dark); opacity: 0.85; }
+.kayak-note small { opacity: 0.75; }
+
 /* ============ COMPARE + WHY GRID ============ */
 .compare-why-grid {
   margin-top: var(--space-5);
