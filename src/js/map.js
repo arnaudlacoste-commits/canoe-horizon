@@ -125,11 +125,12 @@ var HERAULT = [
   [43.9048395, 3.7358027],
   [43.9044196, 3.7356979],
   [43.9036953, 3.7356502],
+  // — La Combe (Base 9 km) — nœud rivière le plus proche du
+  // 462 Av. du Chemin Neuf, décalé ~150 m plus au nord sur demande
+  // (position vérifiée par numérotation métrique de la voie :
+  // n°11 et n°1133-mairie comme repères)
   [43.9029778, 3.7355438],
   [43.9023038, 3.7354613],
-  // — La Combe (Base 9 km) — nœud rivière le plus proche du
-  // 462 Av. du Chemin Neuf (position vérifiée par numérotation
-  // métrique de la voie : n°11 et n°1133-mairie comme repères)
   [43.9013266, 3.7353739],
   [43.9007681, 3.7352913],
   [43.9002131, 3.7350452],
@@ -369,9 +370,9 @@ var HERAULT = [
 // Index de début de chaque parcours dans HERAULT[]
 var IDX = {
   LAROQUE:    0,     // Base Laroque         (index 0)
-  LA_COMBE:   98,    // Base La Combe        (index 98) — recalé sur le
-                     // 462 Av. du Chemin Neuf (l'ancien index 106 était
-                     // ~520 m trop au sud de l'adresse réelle)
+  LA_COMBE:   96,    // Base La Combe        (index 96) — recalé sur le
+                     // 462 Av. du Chemin Neuf puis décalé ~150 m plus
+                     // au nord (ajustement demandé)
   AGONES:     134,   // Base Agonès          (index 134) — point réel repositionné
   AUBANEL:    HERAULT.length - 1
 };
@@ -417,12 +418,11 @@ var BASES = [
     routes:  ['6', '13']
   },
   {
-    // Position du 462 Avenue du Chemin Neuf, déterminée par la
-    // numérotation métrique de la voie (repères vérifiés : n°11 au
-    // nord, n°1133-mairie au sud — écart modèle/terrain ≈ 12 m).
-    // L'ancienne valeur (43.8974106, 3.7346164) était ~520 m trop
-    // au sud.
-    coords:  [43.9016306, 3.7374562],
+    // Position du 462 Avenue du Chemin Neuf (déterminée par la
+    // numérotation métrique de la voie — repères vérifiés : n°11 au
+    // nord, n°1133-mairie au sud, écart modèle/terrain ≈ 12 m),
+    // puis décalée ~150 m plus au nord sur demande.
+    coords:  [43.9029537, 3.7378210],
     label:   'Base La Combe',
     detail:  'Départ 9 km — Découverte',
     couleur: '#2F80C4',
