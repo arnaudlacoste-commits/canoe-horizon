@@ -113,13 +113,15 @@ var HERAULT = [
   [43.9084782, 3.7371098],
   [43.9081647, 3.7371669],
   [43.9078900, 3.7371622],
+  // — La Combe (Base 9 km) — nœud rivière le plus proche du
+  // 462 Av. du Chemin Neuf, décalé ~680 m plus au nord sur demande.
+  // Au-delà du n°11 (dernier repère d'adresse vérifiable), la zone
+  // devient naturelle (gorges du Thaurac) : ce dernier décalage de
+  // 80 m est un offset géodésique plein nord, non vérifié par une
+  // adresse (voir BASES.lacombe pour le même correctif).
   [43.9076007, 3.7370886],
   [43.9073031, 3.7369573],
   [43.9071394, 3.7367635],
-  // — La Combe (Base 9 km) — nœud rivière le plus proche du
-  // 462 Av. du Chemin Neuf, décalé ~600 m plus au nord sur demande
-  // (position vérifiée par numérotation métrique de la voie :
-  // n°11 et n°1133-mairie comme repères)
   [43.9070033, 3.7365396],
   [43.9068168, 3.7363633],
   [43.9065570, 3.7362029],
@@ -370,9 +372,10 @@ var HERAULT = [
 // Index de début de chaque parcours dans HERAULT[]
 var IDX = {
   LAROQUE:    0,     // Base Laroque         (index 0)
-  LA_COMBE:   87,    // Base La Combe        (index 87) — recalé sur le
-                     // 462 Av. du Chemin Neuf puis décalé ~600 m plus
-                     // au nord (ajustements demandés)
+  LA_COMBE:   84,    // Base La Combe        (index 84) — recalé sur le
+                     // 462 Av. du Chemin Neuf puis décalé ~680 m plus
+                     // au nord (ajustements demandés, dernier décalage
+                     // en offset géodésique, hors zone vérifiable)
   AGONES:     134,   // Base Agonès          (index 134) — point réel repositionné
   AUBANEL:    HERAULT.length - 1
 };
@@ -420,10 +423,13 @@ var BASES = [
   {
     // Position du 462 Avenue du Chemin Neuf (déterminée par la
     // numérotation métrique de la voie — repères vérifiés : n°11 au
-    // nord, n°1133-mairie au sud, écart modèle/terrain ≈ 12 m),
-    // puis décalée ~600 m plus au nord sur demande. Ce point est
-    // proche de l'extrémité nord connue de la voie dans OSM.
-    coords:  [43.9069454, 3.7375738],
+    // nord, n°1133-mairie au sud, écart modèle/terrain ≈ 12 m), puis
+    // décalée ~600 m plus au nord sur demande. Au-delà du n°11 (dernier
+    // repère d'adresse existant — la zone plus au nord est naturelle,
+    // gorges du Thaurac, sans adresses), 80 m supplémentaires ont été
+    // appliqués en offset géodésique plein nord, non vérifiable par
+    // une adresse.
+    coords:  [43.9076640, 3.7375738],
     label:   'Base La Combe',
     detail:  'Départ 9 km — Découverte',
     couleur: '#2F80C4',
