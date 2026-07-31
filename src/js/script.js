@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /* ===== Scroll reveal animations ===== */
   const revealTargets = document.querySelectorAll(
-    '.course-card, .discover-card, .timeline-step, .faq-item, .testi-card, .poster-wrap'
+    '.course-card, .discover-card, .timeline-step, .faq-item, .testi-card, .poster-wrap, .contact-card'
   );
   revealTargets.forEach(el => el.classList.add('reveal'));
 
@@ -101,6 +101,27 @@ document.addEventListener('DOMContentLoaded', () => {
     revealTargets.forEach(el => observer.observe(el));
   } else {
     revealTargets.forEach(el => el.classList.add('is-visible'));
+  }
+
+  /* ===== Contact form → mailto (site statique, pas de backend) ===== */
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (!contactForm.reportValidity()) return;
+
+      const name = contactForm.elements.name.value.trim();
+      const email = contactForm.elements.email.value.trim();
+      const subjectSelect = contactForm.elements.subject;
+      const subjectLabel = subjectSelect.options[subjectSelect.selectedIndex].textContent;
+      const message = contactForm.elements.message.value.trim();
+
+      const subject = '[Site] ' + subjectLabel + ' — ' + name;
+      const body = message + '\n\n—\n' + name + '\n' + email;
+      window.location.href = 'mailto:contact@canoehorizon.fr'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+    });
   }
 
   /* ===== Hide sticky CTA near footer ===== */

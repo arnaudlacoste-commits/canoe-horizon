@@ -794,7 +794,14 @@
         </details>
         <details class="faq-item" name="faq">
           <summary data-i18n="faq.q7">Les chiens sont-ils acceptés ?</summary>
-          <p data-i18n-html="faq.a7">Oui, les chiens sont les bienvenus chez <strong>Canoë Horizon</strong> ! Pour leur sécurité, quelques précautions sont importantes : ne laissez jamais la laisse attachée au canoë pendant la descente (elle pourrait se coincer en cas de chute), prévoyez si possible un gilet de sauvetage adapté à votre chien, et pensez à apporter de l'eau et à le protéger du soleil lors des journées chaudes. Merci de nous prévenir lors de la réservation.</p>
+          <div class="faq-answer" data-i18n-html="faq.a7">Oui, les chiens sont les bienvenus chez <strong>Canoë Horizon</strong> ! Nous sommes nous-mêmes passionnés par les chiens et nous sommes heureux de pouvoir partager cette expérience avec vos compagnons à quatre pattes.
+            <p>Pour leur sécurité, quelques précautions sont importantes :</p>
+            <ul>
+              <li>Ne laissez jamais la laisse attachée au canoë pendant la descente, car elle pourrait se coincer en cas de chute et mettre votre chien en danger.</li>
+              <li>Nous vous conseillons, si possible, de prévoir un gilet de sauvetage adapté pour votre chien.</li>
+              <li>Pensez également à apporter de l'eau et à protéger votre compagnon du soleil lors des journées chaudes.</li>
+            </ul>
+            Avec les bonnes précautions, votre chien pourra profiter lui aussi d'une belle aventure sur l'Hérault !</div>
         </details>
         <details class="faq-item" name="faq">
           <summary data-i18n="faq.q8">Peut-on pique-niquer ?</summary>
@@ -816,6 +823,82 @@
     </div>
   </section>
 
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="section-eyebrow section-eyebrow--center" data-i18n="contact.eyebrow">Une question ?</p>
+      <h2 class="contact-title" data-i18n="contact.title">Écrivez-nous</h2>
+      <p class="section-lead contact-lead" data-i18n="contact.lead">Un doute sur le choix du parcours, une sortie en groupe, le niveau d'eau du jour ? L'équipe est sur la rivière tous les jours — on vous répond vite.</p>
+
+      <div class="contact-card">
+        <div class="contact-panel">
+          <svg class="contact-panel-wave" viewBox="0 0 320 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0,30 C60,50 120,10 180,30 C240,50 280,15 320,30 L320,60 L0,60 Z" fill="currentColor"/></svg>
+          <h3 data-i18n="contact.panel_title">Parlons de votre descente</h3>
+          <ul class="contact-channels">
+            <li>
+              <span class="contact-channel-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M5 4h4l2 5-2.5 1.5a12 12 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="contact-channel-body">
+                <a href="tel:+33608849067">06 08 84 90 67</a>
+                <small data-i18n="contact.phone_sub">En saison, le téléphone reste le plus rapide</small>
+              </span>
+            </li>
+            <li>
+              <span class="contact-channel-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="1.6"/><path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span class="contact-channel-body">
+                <a href="mailto:contact@canoehorizon.fr">contact@canoehorizon.fr</a>
+                <small data-i18n="contact.mail_sub">Réponse sous 24 h</small>
+              </span>
+            </li>
+            <li>
+              <span class="contact-channel-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s6-5.6 6-10a6 6 0 0 0-12 0c0 4.4 6 10 6 10Z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="11" r="2.2" stroke="currentColor" stroke-width="1.6"/></svg>
+              </span>
+              <span class="contact-channel-body">
+                <span data-i18n="contact.base">Base Laroque — 111 Avenue des Platanes, 34190 Laroque</span>
+                <small data-i18n="contact.hours">Juillet – Août : 10h – 18h · Septembre : sur réservation</small>
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate>
+          <div class="contact-form-row">
+            <div class="contact-field">
+              <label for="cf-name" data-i18n="contact.f_name">Votre nom</label>
+              <input type="text" id="cf-name" name="name" autocomplete="name" required>
+            </div>
+            <div class="contact-field">
+              <label for="cf-email" data-i18n="contact.f_email">Votre e-mail</label>
+              <input type="email" id="cf-email" name="email" autocomplete="email" required>
+            </div>
+          </div>
+          <div class="contact-field">
+            <label for="cf-subject" data-i18n="contact.f_subject">Sujet</label>
+            <select id="cf-subject" name="subject">
+              <option value="parcours" data-i18n="contact.s1">Choisir un parcours</option>
+              <option value="groupe" data-i18n="contact.s2">Groupe, CE ou scolaire</option>
+              <option value="conditions" data-i18n="contact.s3">Niveau d'eau &amp; conditions</option>
+              <option value="autre" data-i18n="contact.s4">Autre demande</option>
+            </select>
+          </div>
+          <div class="contact-field">
+            <label for="cf-message" data-i18n="contact.f_message">Votre message</label>
+            <textarea id="cf-message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m4 12 16-8-6 16-2.5-6L4 12Z" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            <span data-i18n="contact.send">Envoyer le message</span>
+          </button>
+          <p class="contact-hint" data-i18n="contact.hint">L'envoi ouvre votre messagerie avec le message pré-rempli — rien ne part sans vous.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== RÉSERVATION / CTA FINAL ===================== -->
   <section class="cta-final" id="reservation">
     <div class="container cta-final-inner">
@@ -832,7 +915,7 @@
 </div>
 
 <!-- ===================== FOOTER ===================== -->
-<footer class="site-footer" id="contact">
+<footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-col footer-col--brand">
       <a href="#hero" class="logo logo-footer">
