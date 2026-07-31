@@ -116,15 +116,15 @@ var HERAULT = [
   [43.9076007, 3.7370886],
   [43.9073031, 3.7369573],
   [43.9071394, 3.7367635],
+  // — La Combe (Base 9 km) — nœud rivière le plus proche du
+  // 462 Av. du Chemin Neuf, décalé ~600 m plus au nord sur demande
+  // (position vérifiée par numérotation métrique de la voie :
+  // n°11 et n°1133-mairie comme repères)
   [43.9070033, 3.7365396],
   [43.9068168, 3.7363633],
   [43.9065570, 3.7362029],
   [43.9061611, 3.7360123],
   [43.9058648, 3.7358980],
-  // — La Combe (Base 9 km) — nœud rivière le plus proche du
-  // 462 Av. du Chemin Neuf, décalé ~400 m plus au nord sur demande
-  // (position vérifiée par numérotation métrique de la voie :
-  // n°11 et n°1133-mairie comme repères)
   [43.9053522, 3.7358488],
   [43.9048395, 3.7358027],
   [43.9044196, 3.7356979],
@@ -370,8 +370,8 @@ var HERAULT = [
 // Index de début de chaque parcours dans HERAULT[]
 var IDX = {
   LAROQUE:    0,     // Base Laroque         (index 0)
-  LA_COMBE:   92,    // Base La Combe        (index 92) — recalé sur le
-                     // 462 Av. du Chemin Neuf puis décalé ~400 m plus
+  LA_COMBE:   87,    // Base La Combe        (index 87) — recalé sur le
+                     // 462 Av. du Chemin Neuf puis décalé ~600 m plus
                      // au nord (ajustements demandés)
   AGONES:     134,   // Base Agonès          (index 134) — point réel repositionné
   AUBANEL:    HERAULT.length - 1
@@ -421,8 +421,9 @@ var BASES = [
     // Position du 462 Avenue du Chemin Neuf (déterminée par la
     // numérotation métrique de la voie — repères vérifiés : n°11 au
     // nord, n°1133-mairie au sud, écart modèle/terrain ≈ 12 m),
-    // puis décalée ~400 m plus au nord sur demande.
-    coords:  [43.9051599, 3.7377403],
+    // puis décalée ~600 m plus au nord sur demande. Ce point est
+    // proche de l'extrémité nord connue de la voie dans OSM.
+    coords:  [43.9069454, 3.7375738],
     label:   'Base La Combe',
     detail:  'Départ 9 km — Découverte',
     couleur: '#2F80C4',
