@@ -154,6 +154,9 @@ var HERAULT = [
   [43.8939567, 3.7321103],
   [43.8935607, 3.7317609],
   [43.8931601, 3.7314178],
+  // — Agonès (Base 6 & 7 km) — repositionné (voir correctif en tête
+  // de fichier), puis remonté ~300 m au-dessus du Pont de la Route
+  // de Brissac (D108), sur demande.
   [43.8929018, 3.7312254],
   [43.8927870, 3.7311399],
   [43.8925364, 3.7310176],
@@ -169,7 +172,6 @@ var HERAULT = [
   [43.8881551, 3.7324787],
   [43.8877500, 3.7325518],
   [43.8860868, 3.7329393],
-  // — Agonès (Base 6 & 7 km) — repositionné (voir correctif en tête de fichier)
   [43.8857366, 3.7329679],
   [43.8853005, 3.7328694],
   [43.8850006, 3.7327677],
@@ -376,7 +378,9 @@ var IDX = {
                      // 462 Av. du Chemin Neuf puis décalé ~680 m plus
                      // au nord (ajustements demandés, dernier décalage
                      // en offset géodésique, hors zone vérifiable)
-  AGONES:     134,   // Base Agonès          (index 134) — point réel repositionné
+  AGONES:     119,   // Base Agonès          (index 119) — point réel repositionné
+                     // puis remonté ~300 m au-dessus du Pont de la
+                     // Route de Brissac, sur demande
   AUBANEL:    HERAULT.length - 1
 };
 
@@ -439,8 +443,10 @@ var BASES = [
     // Corrigé : l'ancienne valeur (43.8617551, 3.7069878) pointait en
     // réalité vers un lieu-dit de Brissac (à ~700 m d'Aubanel), pas
     // vers Agonès — cf. correctif détaillé en tête de fichier.
-    // Repositionné sur le point réel utilisé par HERAULT/IDX.AGONES.
-    coords:  [43.8857366, 3.7329679],  // point OSM le plus proche (repositionné)
+    // Repositionné sur le point réel utilisé par HERAULT/IDX.AGONES,
+    // puis remonté ~300 m au-dessus du Pont de la Route de Brissac
+    // (D108), sur demande.
+    coords:  [43.8929018, 3.7312254],  // point OSM le plus proche (repositionné)
     label:   'Base Agonès',
     detail:  'Arrivée 6 km · Départ 7 km',
     couleur: '#264653',

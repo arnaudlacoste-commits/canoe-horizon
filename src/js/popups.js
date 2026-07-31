@@ -25,7 +25,7 @@ var POPUP_BASES = {
 var POPUP_BASE_LNGLAT = {
   laroque: [3.7223778, 43.9236528],
   lacombe: [3.7375738, 43.9076640],
-  agones:  [3.7329679, 43.8857366],
+  agones:  [3.7312254, 43.8929018],
   aubanel: [3.7080578, 43.8554813]
 };
 
